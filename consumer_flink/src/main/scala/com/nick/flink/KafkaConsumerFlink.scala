@@ -16,7 +16,7 @@ object KafkaConsumerFlink {
     env.enableCheckpointing(1000)
 
     val properties = new Properties()
-    properties.setProperty("bootstrap.servers", "test-hadoop5:9092")
+    properties.setProperty("bootstrap.servers", "test-hadoop5:9092") // kafka 的其中一台节点
     properties.setProperty("zookeeper.connect", "test-hadoop3:2181,test-hadoop4:2181,test-hadoop5:2181")
     properties.setProperty("group.id", "ecif")
 
