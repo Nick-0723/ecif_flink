@@ -23,11 +23,11 @@ object KafkaConsumerFlink {
     val myConsumer = new FlinkKafkaConsumer011[String]("ecif", new SimpleStringSchema, properties)
     val dstream: DataStreamSource[String] = env.addSource(myConsumer)
 
-    dstream.map(s => {
-      val fileds = s.split(s"|",-1)
-
-
-    })
+//    dstream.map(s => {
+//      val fileds = s.split(s"|",-1)
+//
+//
+//    })
 
     val hbaseSink = dstream.addSink(new HBaseSink("cust_info","f")).name("hbaseSink")
 

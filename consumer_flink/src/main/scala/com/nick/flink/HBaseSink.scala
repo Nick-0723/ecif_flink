@@ -23,7 +23,7 @@ class HBaseSink(tableName: String, family: String) extends RichSinkFunction[Stri
 
   override def invoke(value: String, context: SinkFunction.Context[_]): Unit = {
 //    廖淑霞|N|20181116|2018-10-09|廖淑霞|452701107010245027|11700586|156350800|0|364400|0|a|N|0|2014-12-11|||0||a|1|||||||||N|
-    val fields = value.split(s"|",-1)
+    val fields = value.split("[|]",-1)
 
     val t: Table = conn.getTable(TableName.valueOf(tableName))
 
